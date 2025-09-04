@@ -2,41 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Petal & Pin Design System - Elegant, refined, artisanal aesthetic
+All colors MUST be HSL. Brand colors: Deep Sage, Soft Cream, Dusty Rose, Muted Gold
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Color Palette */
+    --sage: 145 25% 45%;           /* Deep Sage - primary brand color */
+    --sage-light: 145 20% 65%;    /* Lighter sage for subtle elements */
+    --sage-muted: 145 15% 85%;    /* Very light sage for backgrounds */
+    
+    --cream: 45 25% 96%;          /* Soft Cream - main background */
+    --cream-warm: 45 30% 94%;     /* Slightly warmer cream */
+    
+    --rose: 15 35% 75%;           /* Dusty Rose - accent color */
+    --rose-light: 15 25% 85%;     /* Light rose for subtle highlights */
+    --rose-muted: 15 15% 92%;     /* Very light rose for backgrounds */
+    
+    --gold: 45 55% 70%;           /* Muted Gold - accent color */
+    --gold-light: 45 45% 80%;     /* Light gold */
+    
+    /* Semantic Color System */
+    --background: var(--cream);
+    --foreground: 145 30% 25%;    /* Dark sage for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: var(--cream);
+    --card-foreground: 145 30% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--cream);
+    --popover-foreground: 145 30% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--sage);
+    --primary-foreground: var(--cream);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--rose-muted);
+    --secondary-foreground: 145 30% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--sage-muted);
+    --muted-foreground: 145 20% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--rose);
+    --accent-foreground: var(--cream);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: var(--cream);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--sage-muted);
+    --input: var(--sage-muted);
+    --ring: var(--sage);
 
-    --radius: 0.5rem;
+    /* Design System Extensions */
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-sage: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--sage-light)));
+    --gradient-rose: linear-gradient(135deg, hsl(var(--rose-light)), hsl(var(--rose)));
+    --gradient-warm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--cream-warm)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cream)) 0%, hsl(var(--rose-muted)) 50%, hsl(var(--sage-muted)) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--sage) / 0.15);
+    --shadow-elegant: 0 8px 32px -8px hsl(var(--sage) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--rose) / 0.3);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +88,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode maintains the elegant brand aesthetic */
+    --background: 145 15% 12%; 
+    --foreground: var(--cream);
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 145 15% 15%;
+    --card-foreground: var(--cream);
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 145 15% 15%;
+    --popover-foreground: var(--cream);
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--sage-light);
+    --primary-foreground: 145 15% 12%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 145 20% 20%;
+    --secondary-foreground: var(--cream);
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 145 15% 20%;
+    --muted-foreground: var(--sage-light);
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: var(--rose-light);
+    --accent-foreground: 145 15% 12%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: var(--cream);
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 145 15% 25%;
+    --input: 145 15% 25%;
+    --ring: var(--sage-light);
+    
+    --gradient-hero: linear-gradient(135deg, hsl(145 15% 12%) 0%, hsl(145 20% 18%) 50%, hsl(145 15% 15%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elegant: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
   }
 }
 
@@ -100,6 +129,48 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer utilities {
+  .gradient-sage {
+    background: var(--gradient-sage);
+  }
+  
+  .gradient-rose {
+    background: var(--gradient-rose);
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
   }
 }
